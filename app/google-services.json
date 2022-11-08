@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1070250167076",
+    "project_id": "pomodorus-3f72d",
+    "storage_bucket": "pomodorus-3f72d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070250167076:android:f3ac6df62d57a72da181b1",
+        "android_client_info": {
+          "package_name": "com.example.pomodorus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1070250167076-3fq122fsrdhlodfm1me0reji6a0klnf9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDquOOy8flMYk76LVx8jNJk3Jx0zx1kI8A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1070250167076-3fq122fsrdhlodfm1me0reji6a0klnf9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
