@@ -5,15 +5,15 @@ The main idea for this app is to create an online Pomodoro app that can be use t
 We decided to choose this theme because for us it is hard to focus and start working in projects so we decided to improve the original idea and it in our way
 
 ## Roadmap
-- [ ] Basics
-- [ ] Interaction
-- [ ] Navigation
-- [ ] UX
+- [x] Basics
+- [x] Interaction
+- [x] Navigation
+- [x] UX
 - [ ] Lists
 - [ ] Architecture
 - [ ] Persistance
 - [ ] Networking
-- [ ] Firebase
+- [x] Firebase
 - [ ] Quality
 
 ## Collaborators 
