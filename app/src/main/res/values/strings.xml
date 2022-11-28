@@ -28,4 +28,5 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="historyfragment">HistoryFragment</string>
+    <string name="last_message">Last message</string>
 </resources>

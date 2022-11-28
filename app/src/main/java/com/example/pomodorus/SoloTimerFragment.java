@@ -24,8 +24,7 @@ public class SoloTimerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_solo_timer, container,
-                false);
+        View view = inflater.inflate(R.layout.fragment_solo_timer, container, false);
 
         timer25 = view.findViewById(R.id.time25);
         timer50 = view.findViewById(R.id.timer50);

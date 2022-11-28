@@ -1,4 +1,4 @@
-package com.example.pomodorus.Logins;
+package com.example.pomodorus.Repositories;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -19,11 +19,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth mAuth;
     private EditText edName, edEmail, edPassword;
     private Button signBtn, backLogin;
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance(). getReferenceFromUrl("https://pomodorus-3f72d-default-rtdb.europe-west1.firebasedatabase.app/");
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -107,5 +110,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private void updateUI(Object o) {
         Intent intent = new Intent( RegisterActivity.this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 }

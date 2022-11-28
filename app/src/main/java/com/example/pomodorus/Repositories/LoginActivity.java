@@ -1,4 +1,4 @@
-package com.example.pomodorus.Logins;
+package com.example.pomodorus.Repositories;
 
 import static android.content.ContentValues.TAG;
 
@@ -63,7 +63,29 @@ public class LoginActivity extends AppCompatActivity {
     private void loginUser() {
         String email = edEmail.getText().toString().trim();
         String passw = edPassword.getText().toString().trim();
-        viewModel.loginUser(email, passw);
+
+            if (email.isEmpty()) {
+                edEmail.setError("Email is required!");
+                edEmail.requestFocus();
+                return;
+            }
+
+            if (passw.isEmpty()) {
+                edPassword.setError("Password is required!");
+                edPassword.requestFocus();
+                return;
+            }
+
+            if (edPassword.length() < 6) {
+                edPassword.setError("Password must be at least 6 characters long.");
+                edPassword.requestFocus();
+                return;
+            }
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                edEmail.setError("Please provide a valid email!");
+                edEmail.requestFocus();
+                return;
+            }
 
         mAuth.signInWithEmailAndPassword(email, passw)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -74,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                             Log.d(TAG, "signInWithEmail:success");
                             Intent intent = new Intent(LoginActivity.this, MainMenuActivity.class);
                             startActivity(intent);
+                            finish();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());

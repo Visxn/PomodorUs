@@ -62,7 +62,7 @@
 
     <Button
         android:id="@+id/time25"
-        android:layout_width="120dp"
+        android:layout_width="100dp"
         android:layout_height="35dp"
         android:background="@drawable/button_bg"
         android:fontFamily="@font/pollisansbold"
@@ -82,9 +82,9 @@
 
     <Button
         android:id="@+id/timer50"
-        android:layout_width="120dp"
+        android:layout_width="100dp"
         android:layout_height="35dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginEnd="100dp"
         android:background="@drawable/button_bg"
         android:fontFamily="@font/pollisansbold"
         android:gravity="center"
@@ -101,7 +101,7 @@
 
     <Button
         android:id="@+id/yesBtn"
-        android:layout_width="120dp"
+        android:layout_width="100dp"
         android:layout_height="35dp"
         android:background="@drawable/button_bg"
         android:fontFamily="@font/pollisansbold"
@@ -121,7 +121,7 @@
 
     <Button
         android:id="@+id/noMusicBtn"
-        android:layout_width="120dp"
+        android:layout_width="100dp"
         android:layout_height="35dp"
         android:background="@drawable/button_bg"
         android:fontFamily="@font/pollisansbold"
@@ -133,7 +133,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.718"
+        app:layout_constraintHorizontal_bias="0.678"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.42"

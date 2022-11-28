@@ -19,12 +19,16 @@ import com.google.android.material.appbar.AppBarLayout;
 public class MainMenuActivity extends AppCompatActivity implements View.OnClickListener {
     private ColorStateList def;
     private TextView itemm1, itemm2, itemm3, select;
+    private String email;
+    private String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu_activity);
 
+        user = getIntent().getStringExtra("name");
+        email = getIntent().getStringExtra("email");
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
