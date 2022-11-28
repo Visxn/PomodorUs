@@ -1,4 +1,4 @@
-package com.example.pomodorus;
+package com.example.pomodorus.Logins;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -7,12 +7,18 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.pomodorus.Menus.MainActivity;
+import com.example.pomodorus.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.text.Format;
+import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth mAuth;
@@ -80,5 +86,26 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             edEmail.requestFocus();
 
         }
+        mAuth.createUserWithEmailAndPassword(email, passw)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Toast.makeText(RegisterActivity.this, "User created correctly!", Toast.LENGTH_LONG).show();
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(RegisterActivity.this, "Authentication failed.Try again! ",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    private void updateUI(Object o) {
+        Intent intent = new Intent( RegisterActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }
