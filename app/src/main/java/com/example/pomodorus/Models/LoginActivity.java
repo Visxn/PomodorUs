@@ -1,4 +1,4 @@
-package com.example.pomodorus.Repositories;
+package com.example.pomodorus.Models;
 
 import static android.content.ContentValues.TAG;
 
@@ -95,6 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             Intent intent = new Intent(LoginActivity.this, MainMenuActivity.class);
+                            Toast.makeText(LoginActivity.this, "Welcome back!", Toast.LENGTH_SHORT).show();
                             startActivity(intent);
                             finish();
                         } else {

@@ -10,11 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 
-import com.example.pomodorus.ChatFragment;
+import com.example.pomodorus.SettingsFragment;
 import com.example.pomodorus.HistoryFragment;
 import com.example.pomodorus.R;
 import com.example.pomodorus.SoloTimerFragment;
-import com.google.android.material.appbar.AppBarLayout;
 
 public class MainMenuActivity extends AppCompatActivity implements View.OnClickListener {
     private ColorStateList def;
@@ -81,7 +80,7 @@ public class MainMenuActivity extends AppCompatActivity implements View.OnClickL
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction()
                     .setCustomAnimations(R.anim.move_to_right, R.anim.move_to_left)
-                    .replace(R.id.fragmentFrame, ChatFragment.class, null)
+                    .replace(R.id.fragmentFrame, SettingsFragment.class, null)
                     .setReorderingAllowed(true)
                     .commit();
         }

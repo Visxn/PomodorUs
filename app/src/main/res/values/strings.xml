@@ -29,4 +29,7 @@
     <string name="no">No</string>
     <string name="historyfragment">HistoryFragment</string>
     <string name="last_message">Last message</string>
+    <string name="enter_message">Enter message!</string>
+    <string name="time_left_for_next_break">Time left for next break:</string>
+    <string name="no_pain_no_gain">No pain no gain!</string>
 </resources>

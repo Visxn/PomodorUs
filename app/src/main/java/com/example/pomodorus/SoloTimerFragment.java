@@ -1,5 +1,6 @@
 package com.example.pomodorus;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.Timer;
+
 /**
  * A simple {@link Fragment
  * create an instance of this fragment.
@@ -19,6 +22,7 @@ public class SoloTimerFragment extends Fragment {
     protected Button timer25, timer50, yesMusic, noMusic, startSession;
     protected Boolean time = true;
     protected Boolean music =false;
+    protected Button startTimer;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,7 +34,7 @@ public class SoloTimerFragment extends Fragment {
         timer50 = view.findViewById(R.id.timer50);
         yesMusic = view.findViewById(R.id.yesBtn);
         noMusic = view.findViewById(R.id.noMusicBtn);
-
+        startTimer = view.findViewById(R.id.SessionBtn);
 
         //Used to select minuts of the counter
         timer25.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +72,13 @@ public class SoloTimerFragment extends Fragment {
             }
         });
 
+        startTimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),TimerActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 }

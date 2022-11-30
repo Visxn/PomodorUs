@@ -1,4 +1,4 @@
-package com.example.pomodorus.Repositories;
+package com.example.pomodorus.Models;
 
 
 import android.util.Patterns;

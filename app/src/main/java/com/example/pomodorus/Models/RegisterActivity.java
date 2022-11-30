@@ -1,4 +1,4 @@
-package com.example.pomodorus.Repositories;
+package com.example.pomodorus.Models;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -9,31 +9,36 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.pomodorus.Menus.MainActivity;
+import com.example.pomodorus.Menus.MainMenuActivity;
 import com.example.pomodorus.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth mAuth;
     private EditText edName, edEmail, edPassword;
     private Button signBtn, backLogin;
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance(). getReferenceFromUrl("https://pomodorus-3f72d-default-rtdb.europe-west1.firebasedatabase.app/");
+    FirebaseFirestore db;
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup_tab_fragment);
+
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         edEmail = findViewById(R.id.email);
         edName = findViewById(R.id.name);
@@ -47,7 +52,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view){
         switch (view.getId()){
             case R.id.signupBtn:
-                registerUser();
+                String email = edEmail.getText().toString();
+                String name = edName.getText().toString();
+                String passw = edPassword.getText().toString();
+                Map<String, Object> user = new HashMap<>();
+                user.put("Email", email);
+                user.put("Name", name);
+                user.put("Passw", passw);
+                db.collection("user").add(user);
+                registerUser(edEmail, edName, edPassword);
                 break;
             case R.id.gotAcc:
                 Intent intent = new Intent(this, LoginActivity.class);
@@ -57,10 +70,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    private void registerUser() {
-        String email = edEmail.getText().toString().trim();
-        String name = edName.getText().toString().trim();
-        String passw = edPassword.getText().toString().trim();
+    private void registerUser(EditText edEmail, EditText edName, EditText edPassword) {
+        String email = edEmail.getText().toString();
+        String name = edName.getText().toString();
+        String passw = edPassword.getText().toString();
+
 
         if (name.isEmpty()){
             edName.setError("Name is required!");
@@ -90,26 +104,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         }
         mAuth.createUserWithEmailAndPassword(email, passw)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(RegisterActivity.this, "User created correctly!", Toast.LENGTH_LONG).show();
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(RegisterActivity.this, "Authentication failed.Try again! ",
-                                    Toast.LENGTH_SHORT).show();
-                        }
+                    public void onSuccess(AuthResult authResult) {
+                        Toast.makeText(RegisterActivity.this, "Sign up sucessfuly, WELCOME!", Toast.LENGTH_SHORT).show();
+
+                        startActivity(new Intent(RegisterActivity.this, MainMenuActivity.class));
+                        finish();
                     }
                 });
     }
 
-    private void updateUI(Object o) {
-        Intent intent = new Intent( RegisterActivity.this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
+
 }

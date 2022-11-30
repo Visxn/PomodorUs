@@ -22,9 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Repositories.RegisterActivity"></activity>
-        <activity android:name=".Repositories.LoginActivity"></activity>
+        <activity android:name=".Models.RegisterActivity"></activity>
+        <activity android:name=".Models.LoginActivity"></activity>
         <activity android:name=".Menus.MainMenuActivity"></activity>
+        <activity android:name=".TimerActivity"></activity>
     </application>
 
 </manifest>
