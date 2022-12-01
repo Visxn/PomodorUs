@@ -13,8 +13,6 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.firestore.FirebaseFirestore;
-
 import java.io.IOException;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
@@ -27,13 +25,14 @@ public class TimerActivity extends AppCompatActivity {
     private int duration;
     private Boolean music = false;
     private ImageView muteMusic;
-    private FirebaseFirestore db;
+
 
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer);
+
         progressBar = findViewById(R.id.progress_bar);
         progressText = findViewById(R.id.progress_text);
         progressText_sec = findViewById(R.id.progress_text_sec);
@@ -51,7 +50,7 @@ public class TimerActivity extends AppCompatActivity {
             }
         });
         playSong(music, mediaPlayer);
-        putDataDb();
+
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
