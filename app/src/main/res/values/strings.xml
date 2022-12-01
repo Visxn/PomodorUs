@@ -32,4 +32,6 @@
     <string name="enter_message">Enter message!</string>
     <string name="time_left_for_next_break">Time left for next break:</string>
     <string name="no_pain_no_gain">No pain no gain!</string>
+    <string name="ss">Settings</string>
+    <string name="what_are_you_going_to_study">What are you going to study?</string>
 </resources>

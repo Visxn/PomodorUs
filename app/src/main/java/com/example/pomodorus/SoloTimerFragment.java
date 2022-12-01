@@ -1,17 +1,15 @@
 package com.example.pomodorus;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-
-import java.util.Timer;
 
 /**
  * A simple {@link Fragment
@@ -20,9 +18,11 @@ import java.util.Timer;
 public class SoloTimerFragment extends Fragment {
 
     protected Button timer25, timer50, yesMusic, noMusic, startSession;
-    protected Boolean time = true;
+    protected Boolean time25 = true;
     protected Boolean music =false;
     protected Button startTimer;
+    protected EditText sessionName;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,6 +35,7 @@ public class SoloTimerFragment extends Fragment {
         yesMusic = view.findViewById(R.id.yesBtn);
         noMusic = view.findViewById(R.id.noMusicBtn);
         startTimer = view.findViewById(R.id.SessionBtn);
+        sessionName = view.findViewById(R.id.session_name);
 
         //Used to select minuts of the counter
         timer25.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +43,7 @@ public class SoloTimerFragment extends Fragment {
             public void onClick(View view) {
                 Toast.makeText(getActivity(), "You have choosen 25 minutes session"
                         , Toast.LENGTH_SHORT).show();
-                time = true;
+                time25 = true;
             }
         });
         timer50.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +51,7 @@ public class SoloTimerFragment extends Fragment {
             public void onClick(View view) {
                 Toast.makeText(getActivity(), "You have choosen 50 minutes session"
                         , Toast.LENGTH_SHORT).show();
-                time = false;
+                time25 = false;
             }
         });
 
@@ -75,8 +76,12 @@ public class SoloTimerFragment extends Fragment {
         startTimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),TimerActivity.class);
-                startActivity(intent);
+                if (time25 == true && music == true) {
+                    Intent intent = new Intent(getActivity(), TimerActivity.class);
+                    intent.putExtra("duration", 1500);
+                    intent.putExtra("music", true);
+                    startActivity(intent);
+                }
             }
         });
         return view;
