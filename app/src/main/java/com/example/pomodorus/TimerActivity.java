@@ -89,7 +89,7 @@ public class TimerActivity extends AppCompatActivity {
             public void onFinish() {
                 //reset timer duration
                 duration = 1500;
-                Intent intent = new Intent(TimerActivity.this, RestTimerActiviy.class);
+                Intent intent = new Intent(TimerActivity.this, RestTimerFragment.class);
                 startActivity(intent);
             }
         }.start();

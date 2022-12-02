@@ -20,7 +20,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RestTimerActiviy extends AppCompatActivity {
+public class RestTimerFragment extends AppCompatActivity {
 
     private TextView sentence;
     private ProgressBar progressBar;

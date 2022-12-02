@@ -37,19 +37,14 @@ public class HistoryFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         db = FirebaseFirestore.getInstance();
         sessionArrayList = new ArrayList<Session>();
         sessionsAdapter = new SessionsAdapter(getActivity(), sessionArrayList);
 
-
-
         recyclerView.setAdapter(sessionsAdapter);
-
         EventChangeListener();
-
-
         return view;
 
     }
@@ -61,15 +56,8 @@ public class HistoryFragment extends Fragment {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
-                        if (error != null) {
-                            if (progressDialog.isShowing()){
-                                progressDialog.dismiss();
-                            }
-                            return;
-                        }
-
+                        assert value != null;
                         for (DocumentChange dc : value.getDocumentChanges()){
-
                             if (dc.getType() == DocumentChange.Type.ADDED) {
                                 sessionArrayList.add(dc.getDocument().toObject(Session.class));
                             }
