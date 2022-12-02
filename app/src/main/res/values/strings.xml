@@ -39,4 +39,6 @@
     <string name="useremail">UserEmail</string>
     <string name="message">Message...</string>
     <string name="messages">Messages</string>
+    <string name="update_list">Update List</string>
+    <string name="terms_and_cons">By clicking Log In or Sign Up, you agree with our Terms. Learn how we procress your data in our Privacy Policy and Cookies Policy.</string>
 </resources>

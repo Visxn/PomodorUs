@@ -91,7 +91,6 @@ public class RestTimerFragment extends AppCompatActivity {
 
     //function to get the sentence from the API service
     private void setBoringSentence() {
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://www.boredapi.com/")
                 .addConverterFactory(GsonConverterFactory.create())

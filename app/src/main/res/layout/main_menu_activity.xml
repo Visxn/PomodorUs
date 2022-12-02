@@ -8,6 +8,7 @@
 
 
     <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/sail_blue"
@@ -19,7 +20,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_margin="15dp"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/mainFragment"
@@ -48,11 +50,22 @@
             </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
+
         <include layout="@layout/contain_main">
         </include>
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/logout_btn"
+        android:layout_width="32dp"
+        android:layout_height="27dp"
+        android:layout_margin="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_logout_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

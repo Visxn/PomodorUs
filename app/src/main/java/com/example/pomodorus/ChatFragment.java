@@ -83,7 +83,7 @@ public class ChatFragment extends Fragment {
     }
 
 
-        private void reciveMessage(){
+    private void reciveMessage(){
         db.child("Message").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -99,6 +99,6 @@ public class ChatFragment extends Fragment {
 
             }
         });
-        }
     }
+}
 

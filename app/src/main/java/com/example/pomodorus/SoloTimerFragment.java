@@ -119,7 +119,7 @@ public class SoloTimerFragment extends Fragment {
     }
 
     private void adInfoToDb() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmm", Locale.getDefault());
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm  MM-dd-yyyy", Locale.getDefault());
         String currentDateandTime = sdf.format(new Date());
         String StudySession = sessionName.getText().toString();
         Map<String, Object> sesInfo = new HashMap<>();
