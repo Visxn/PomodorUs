@@ -66,7 +66,7 @@ public class TimerActivity extends AppCompatActivity {
             }
         }, 1000);
 
-        new CountDownTimer(duration * 1000, 1000) {
+        new CountDownTimer(10 * 1000, 1000) {
             @Override
             public void onTick(long l) {
                 runOnUiThread(new Runnable() {

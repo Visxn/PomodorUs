@@ -1,5 +1,6 @@
 package com.example.pomodorus.Adapters;
 
+//Message object for the chat
 public class Message {
 
     private String userEmail;

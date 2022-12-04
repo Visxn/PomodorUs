@@ -18,6 +18,8 @@ import com.example.pomodorus.R;
 import com.example.pomodorus.SoloTimerFragment;
 import com.google.firebase.auth.FirebaseAuth;
 
+//activity for the app menu
+
 public class MainMenuActivity extends AppCompatActivity implements View.OnClickListener {
     private ColorStateList def;
     private TextView itemm1, itemm2, itemm3, select;

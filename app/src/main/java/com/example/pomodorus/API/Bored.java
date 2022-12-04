@@ -1,5 +1,6 @@
 package com.example.pomodorus.API;
 
+//Object to store API data
 public class Bored {
 
     private String activity;

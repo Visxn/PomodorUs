@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.pomodorus.R;
 
 import java.util.ArrayList;
-
+//REcyclerView for the sessions history
 public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.MyViewHolder> {
 
    Context context;

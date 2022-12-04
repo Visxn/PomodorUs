@@ -1,5 +1,6 @@
 package com.example.pomodorus.Adapters;
 
+//object for the sessions adapter
 public class Session {
     String sessionName, date;
     public Session(){}

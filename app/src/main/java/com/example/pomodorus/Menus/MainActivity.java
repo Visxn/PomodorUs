@@ -14,6 +14,7 @@ import com.example.pomodorus.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+//Main activity class for the login and sign up activity
 public class MainActivity extends AppCompatActivity {
 
     private Button loginBtn, signupBtn;
