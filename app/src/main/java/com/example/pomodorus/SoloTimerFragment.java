@@ -112,6 +112,7 @@ public class SoloTimerFragment extends Fragment {
                     intent.putExtra("duration", 1500);
                     intent.putExtra("music", false);
                     startActivity(intent);
+
                 }
             }
         });

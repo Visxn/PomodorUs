@@ -91,6 +91,7 @@ public class TimerActivity extends AppCompatActivity {
                 duration = 1500;
                 Intent intent = new Intent(TimerActivity.this, RestTimerFragment.class);
                 startActivity(intent);
+                finish();
             }
         }.start();
 
