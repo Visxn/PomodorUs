@@ -19,3 +19,5 @@ We decided to choose this theme because for us it is hard to focus and start wor
 ## Collaborators 
 * Roger Vison
 
+Link to YT video:
+https://www.youtube.com/watch?v=tiHHZCL9hzI&ab_channel=rogervison
